@@ -1,0 +1,53 @@
+-- Database: Activity3
+
+-- DROP DATABASE "Activity3";
+
+CREATE DATABASE "Activity3"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+
+CREATE TABLE cities(
+city character varying (30) NOT NULL,
+state character varying (30),
+population integer
+);
+
+--Insert Table
+INSERT INTO cities (city, state, population) 
+		VALUES ('Alameda', 'Caifornia', 79177),
+			('Mesa', 'Arizona', 496401),
+			('Boerne', 'Texas', 16056),
+			('Anaheim', 'California', 352497),
+			('Tucson', 'Arizona', 535677),
+			('Garland', 'Texas', 238002);
+
+--View Table
+SELECT * FROM cities;
+
+
+---View 
+Select city FROM cities;
+
+--bonus 1
+SELECT city, state
+FROM cities
+Where state = 'Arizona';
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
