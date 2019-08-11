@@ -66,3 +66,14 @@ SELECT count(distinct customer_id) from trans_data;
 
 -- Average sales per day
 select trans_date, round(avg(sales_prices),2) as sls from trans_Data group by trans_date;
+
+--Total sales per day
+SELECT trans_date, round(sum(sales_prices),2) as Tot_sls_day from trans_data group by trans_date;
+
+--For each month, which was the highest sales day.
+SELECT trans_date, round(sum(sales_prices),2) as Tot_sls_day from trans_data group by trans_date
+order by round(sum(sales_prices),2) asc limit 1;
+
+---Find the day with the maximum sales
+SELECT trans_date, round(sum(sales_prices),2) as Tot_sls_day from trans_data group by trans_date
+order by round(sum(sales_prices),2) desc limit 2;
