@@ -77,3 +77,19 @@ order by round(sum(sales_prices),2) asc limit 1;
 ---Find the day with the maximum sales
 SELECT trans_date, round(sum(sales_prices),2) as Tot_sls_day from trans_data group by trans_date
 order by round(sum(sales_prices),2) desc limit 2;
+
+-- Select the lowest ranked item
+select * from (select trans_date, round(sum(sales_price),2) as total_sls,
+rank() over(order by round(sum(sales_prices),2)) as rnk
+from trans_data group by trans_date) abc_table
+where rnk=1;
+
+---- Rank the customers, find the 10 with the highest sales
+select * from (select customer_id, round(sum(sales_prices),2) total_sls,
+rank() over (order by round(sum(sales_prices),2) desc) as rnk from trans_data
+group by customer_id) as abc_table
+where rnk <= 10;
+            
+-----
+
+
