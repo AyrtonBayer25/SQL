@@ -90,6 +90,12 @@ rank() over (order by round(sum(sales_prices),2) desc) as rnk from trans_data
 group by customer_id) as abc_table
 where rnk <= 10;
             
------
+-----Rank the item descriptions, find the 10 with the highest sales
+ select * from (select item_desc, round(sum(sales_prices),2) as total_sls, rank()
+ over (order by round(sum(sales_prices),2) desc) as rnk
+       from trans_data
+       group by item_desc) as item_table
+       where rnk <=10;
+                
 
 
