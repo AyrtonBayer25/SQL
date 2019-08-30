@@ -16,3 +16,6 @@ select sum(open)/count(open) as avg_opening_price from tutorial.aapl_historical_
 ---What was Apple's 
 --lowest stock price (at the time of this data collection)?
 select min(low) as lowest_price from tutorial.aapl_historical_stock_price;
+
+--WRITE a query that calculates the average daily trade volume for Apple stock.
+Select avg(volume) as avg_stock_volume from tutorial.aapl_historical_stock_price;
