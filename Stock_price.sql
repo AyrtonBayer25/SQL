@@ -50,3 +50,12 @@ order by 1, 2;
 select DISTINCT year from tutorial.aapl_historical_stock_price
 group by 1
 order by 1;
+
+--Write a query that counts the number of unique values in the 
+--month column for each year.
+
+select year,
+count(distinct month) as unique from tutorial.aapl_historical_stock_price
+group by year
+order by year;
+
