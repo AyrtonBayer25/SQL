@@ -43,3 +43,10 @@ month,
 min(low) as lowest, MAX(high) as highest from tutorial.aapl_historical_stock_price
 group by 1, 2
 order by 1, 2;
+
+---Write a query that returns the unique values in the year column
+--, in chronological order.
+
+select DISTINCT year from tutorial.aapl_historical_stock_price
+group by 1
+order by 1;
