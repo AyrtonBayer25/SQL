@@ -28,3 +28,10 @@ month,
 SUM(volume) as volume_sum FROM tutorial.aapl_historical_stock_price
 GROUP BY year, month
 order by year, month;
+
+---Write a query to calculate the average daily price change 
+--in Apple stock, grouped by year.
+
+select year, avg(close - open) as daily_average from tutorial.aapl_historical_stock_price
+group by 1
+order by 1;
