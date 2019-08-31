@@ -35,3 +35,11 @@ order by year, month;
 select year, avg(close - open) as daily_average from tutorial.aapl_historical_stock_price
 group by 1
 order by 1;
+
+---Write a query that calculates the lowest and highest prices that 
+--Apple stock achieved each month.
+SELECT year, 
+month, 
+min(low) as lowest, MAX(high) as highest from tutorial.aapl_historical_stock_price
+group by 1, 2
+order by 1, 2;
