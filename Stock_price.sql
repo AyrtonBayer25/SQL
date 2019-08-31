@@ -19,3 +19,12 @@ select min(low) as lowest_price from tutorial.aapl_historical_stock_price;
 
 --WRITE a query that calculates the average daily trade volume for Apple stock.
 Select avg(volume) as avg_stock_volume from tutorial.aapl_historical_stock_price;
+
+--Calculate the total number of shares traded each month. 
+--Order your results chronologically.
+
+SELECT year,
+month,
+SUM(volume) as volume_sum FROM tutorial.aapl_historical_stock_price
+GROUP BY year, month
+order by year, month;
